@@ -1,0 +1,59 @@
+{% import "macros.html" as macros %}
+<!DOCTYPE html>
+<!--[if lte IE 6]><html class="preIE7 preIE8 preIE9"><![endif]-->
+<!--[if IE 7]><html class="preIE8 preIE9"><![endif]-->
+<!--[if IE 8]><html class="preIE9"><![endif]-->
+<!--[if gte IE 9]><!--><html><!--<![endif]-->
+  {% block head %}
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{{ config.title }}</title>
+    {% if config.extra_subtitle %}
+    <meta name="description" content="{{ config.extra.subtitle }}">
+    {% endif %}
+    <link rel="stylesheet" href="{{ get_url(path="style.css", trailing_slash=false) }}">
+    {% if config.generate_rss %}
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ get_url(path='rss.xml') }}">
+    {% endif %}
+    {% if config.extra.headlinks %} {% for link in config.extra.headlinks %}
+    <link rel="{{ link.rel }}" href="{{ link.link | safe }}">
+    {% endfor %} {% endif %}
+    {% if indieauth %}
+    <link rel="openid.delegate" href="{{ config.base_url }}" />
+    <link rel="openid.server" href="https://openid.indieauth.com/openid" />
+    {% endif %}
+    <script src="{{ get_url(path="js/base.js", trailing_slash=false) }}"></script>
+    <link rel="stylesheet" href=>
+  </head>
+  {% endblock head %}
+  <canvas id="bg"></canvas>
+  <body onload="init();">
+    <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <header>
+      <nav>
+        <a class="underline" type="application/rss+xml" href="{{ get_url(path="rss.xml") }}">rss</a>
+      </nav>
+    </header>
+    <aside>
+      <nav>
+        <div class="aside-item link"><a class="underline" href="{{ get_url(path="/") }}">home</a></div>
+        <div class="aside-item link"><a class="underline" href="{{ get_url(path="blog") }}">blog</a></div>
+        <div class="aside-item link"><a class="underline" href="{{ get_url(path="foo") }}">something else</a></div>
+      </nav>
+    </aside>
+    <main>
+      {% block content %}{% endblock content %}
+    </main>
+    <footer>
+      {% block footer %}
+      {{ macros::hcard(hidden=true) }}
+      &copy; Copyright 2021 - Ian S. Pringle.
+      {% endblock footer %}
+    </footer>
+  </body>
+</html>

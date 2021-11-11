@@ -1,0 +1,58 @@
+{% macro hcard(hidden=false) %}
+<section {% if hidden %}style="display: none;" {% endif %}class="h-card">
+  {% if config.extra.hcard.photo %}
+  <img
+    class="u-photo centered"
+    src="{{ config.extra.hcard.photo }}"
+    alt="{{ config.extra.hcard.pname }}"
+    style="border-radius: 8px;"
+    op="fit-width"
+    width="150"
+  />
+  {% endif %} {% if config.extra.hcard.name %}
+  <p>
+    <a class="u-url u-uid" href="{{ config.base_url }}">
+      <span class="p-name">{{ config.extra.hcard.pname }}</span>
+    </a>
+  </p>
+  {% endif %} {% if config.extra.hcard.note %}
+  <span class="p-note"
+    ><h3>
+      {{ config.extra.hcard.note }}
+    </h3></span
+  >
+  {% endif %}
+  <ul>
+    {% if config.extra.hcard.uurl %} {% for uurl in config.extra.hcard.uurl %}
+    <li>
+      <a class="u-url" rel="me" href="{{ uurl.link }}">{{ uurl.text }}</a>
+    </li>
+    {% endfor %} {% endif %} {% if config.extra.hcard.email %}
+    <li>
+      <a class="u-email" rel="me" href="{{ config.extra.hcard.email }}">{{
+        config.extra.hcard.email
+      }}</a>
+    </li>
+    {% endif %} {% if config.extra.hcard.irc %} {% for server in
+    config.extra.hcard.irc %}
+    <li>
+      <a
+        class="u-nickname"
+        rel="me"
+        href="{{ server.server_uri }}/{{ server.nick }},isnick"
+        >{{ server.nick }} on {{ server.server_name }}</a
+      >
+    </li>
+    {% endfor %} {% endif %} {% if config.extra.hcard.key %}
+    <li>
+      <a
+        class="u-key"
+        rel="me"
+        href="{{ config.base_url }}/{{ config.extra.hcard.key.link }}"
+        >{{ config.extra.hcard.key.hash }}</a
+      >
+    </li>
+    {% endif %}
+  </ul>
+</section>
+{% endmacro hcard %}

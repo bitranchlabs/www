@@ -1,0 +1,105 @@
+@import _fonts
+html
+  font-family: $font
+  overflow: hidden
+
+a
+  text-decoration: none
+  color: white
+
+body
+  display: grid
+  grid-template-areas: "header header header" "aside main ." "footer footer footer"
+  grid-template-columns: 25vw 50vw 25vw
+  grid-template-rows: 5vh 90vh 5vh
+  margin: 0
+  height: 100vh
+  overflow: hidden
+  width: 100vw
+  color: rgb(185, 180, 169)
+  text-rendering: geometricPrecision
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+
+#bg
+  position: fixed
+  top: 0
+  left: 0
+  z-index: -1
+
+article
+  grid-area: article
+
+.underline:hover
+  color: rgb(185, 180, 169)
+
+.underline
+  position: relative
+
+.underline::before
+  content: ''
+  position: absolute
+  bottom: 0
+  left: 0
+  right: 0
+  height: 2px
+  background-color: rgb(185, 180, 169)
+  transform-origin: bottom right
+  transform: scaleX(0)
+  transition: transform 0.5s ease
+
+.underline:hover::before
+  transform-origin: bottom left
+  transform: scaleX(1)
+
+.highlight
+  color: rgb(185, 180, 169)
+  position: relative
+  z-index: 1
+
+.highlight::before
+  content: ''
+  position: absolute
+  z-index: -1
+  top: 0
+  bottom: 0
+  left: -0.25em
+  right: -0.25em
+  background-color: rgb(185, 180, 169)
+  transform-origin: bottom center
+  transform: scaleY(0.1)
+  transition: all 0.1s ease-in-out
+
+.highlight:hover::before
+  transform: scaleY(1)
+  background-color: rgb(185, 180, 169)
+
+.highlight:hover
+  color: rgb(57, 66, 78)
+
+aside
+  grid-area: aside
+  row-gap: 10px
+  display: flex
+  flex-direction: column
+
+main
+  background: rgb(57, 66, 78)
+  background: rgba(57, 66, 78, 0.5)
+  margin: 0 auto
+  grid-area: main
+  overflow: auto
+  scrollbar-width: none
+  -ms-overflow-style: none
+
+main::-webkit-scrollbar
+    display: none
+
+footer
+  grid-area: footer
+  text-align: right
+
+header
+  grid-area: header
+
+

@@ -25,12 +25,12 @@
     <link rel="openid.delegate" href="{{ config.base_url }}" />
     <link rel="openid.server" href="https://openid.indieauth.com/openid" />
     {% endif %}
-    <script src="{{ get_url(path="js/base.js", trailing_slash=false) }}"></script>
     <link rel="stylesheet" href=>
+    <script type="module" src="{{ get_url(path="js/base.js", trailing_slash=false) }}"></script>
   </head>
   {% endblock head %}
   <canvas id="bg"></canvas>
-  <body onload="init();">
+  <body>
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->

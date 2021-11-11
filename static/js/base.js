@@ -79,14 +79,14 @@ const resetGame = (victor) => {
 const clear = () => context.clearRect(0, 0, canvas.width, canvas.height);
 
 const draw = () => {
-  context.fillStyle = 'white';
+  context.fillStyle = 'rgb(185, 180, 169)';
 
   // Middle line
   context.beginPath();
   context.setLineDash([15, 20]);
   context.moveTo(canvas.width / 2, 30);
   context.lineTo(canvas.width / 2, canvas.height);
-  context.strokeStyle = 'white';
+  context.strokeStyle = 'rgb(185, 180, 169)';
   context.stroke();
 
   // Ball

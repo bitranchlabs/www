@@ -1,0 +1,13 @@
+{% macro nav(class="", show_home=true) %}
+<aside class="{{ class }}">
+  <nav>
+    {% if show_home %}
+    <div class="aside-item link"><a class="underline" href="{{ get_url(path="/") }}">home</a></div>
+    {% endif %}
+    <div class="aside-item link"><a class="underline" href="{{ get_url(path="about") }}">about</a></div>
+    <div class="aside-item link"><a class="underline" href="{{ get_url(path="blog") }}">blog</a></div>
+    <div class="aside-item link"><a class="underline" href="{{ get_url(path="proj") }}">projects</a></div>
+    <div class="aside-item link"><a class="underline" href="https://github.com/pard68">github</a></div>
+  </nav>
+</aside>
+{% endmacro nav %}

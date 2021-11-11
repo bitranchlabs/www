@@ -39,13 +39,7 @@
         <a class="underline" type="application/rss+xml" href="{{ get_url(path="rss.xml") }}">rss</a>
       </nav>
     </header>
-    <aside>
-      <nav>
-        <div class="aside-item link"><a class="underline" href="{{ get_url(path="/") }}">home</a></div>
-        <div class="aside-item link"><a class="underline" href="{{ get_url(path="blog") }}">blog</a></div>
-        <div class="aside-item link"><a class="underline" href="{{ get_url(path="foo") }}">something else</a></div>
-      </nav>
-    </aside>
+    {% block aside %}{% endblock aside %}
     <main>
       {% block content %}{% endblock content %}
     </main>

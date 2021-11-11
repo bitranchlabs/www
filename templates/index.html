@@ -1,5 +1,5 @@
 {% extends "base.html" %}
+{% import "aside.html" as aside %}
 {% block content %}
-<h1 class="title">{{ section.title }}</h1>
-{{ section.content | safe }}
+  {{ aside::nav(class="main-nav", show_home=false) }}
 {% endblock content %}

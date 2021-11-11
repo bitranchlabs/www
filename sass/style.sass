@@ -1,14 +1,17 @@
 @import _fonts
 html
   font-family: $font
+  font-size: 20px
   overflow: hidden
 
 a
   text-decoration: none
-  color: white
+  color: rgb(185, 180, 169)
 
 body
   display: grid
+  font-family: $font
+  font-size: 1em
   grid-template-areas: "header header header" "aside main ." "footer footer footer"
   grid-template-columns: 25vw 50vw 25vw
   grid-template-rows: 5vh 90vh 5vh
@@ -34,6 +37,7 @@ article
   color: rgb(185, 180, 169)
 
 .underline
+  color: rgb(185, 180, 169)
   position: relative
 
 .underline::before
@@ -79,14 +83,28 @@ article
 
 aside
   grid-area: aside
-  row-gap: 10px
   display: flex
   flex-direction: column
+  height: 100%
+  width: 100%
+  margin-bottom: 1rem
+  line-height: 1.5em
+  font-weight: 300
+  align-items: flex-start
+  &.sidebar
+    margin-left: 0.5rem
+    justify-content: flex-start
+    font-size: 2rem
+  &.main-nav
+    justify-content: flex-end
+    font-size: 3rem
 
 main
   background: rgb(57, 66, 78)
   background: rgba(57, 66, 78, 0.5)
   margin: 0 auto
+  height: 100%
+  width: 100%
   grid-area: main
   overflow: auto
   scrollbar-width: none
@@ -98,8 +116,11 @@ main::-webkit-scrollbar
 footer
   grid-area: footer
   text-align: right
+  font-size: 0.75em
 
 header
+  text-align: right
+  margin-right: 1em
   grid-area: header
 
 

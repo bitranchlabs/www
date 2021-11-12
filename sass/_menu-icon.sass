@@ -1,0 +1,103 @@
+$color1: #0e3577
+$color2: rgb(185, 180, 169)
+
+* 
+	-webkit-tap-highlight-color: transparent
+	&:focus 
+		outline: none
+
+.mobile-menu
+  background: #333
+  width: 100vw
+  height: 100vh
+  position: fixed
+  left: 0
+  transition-timing-function: cubic-bezier(0.1, 0.7, 1.0, 0.1)
+  transition-duration: 0.5s
+  transform: translateX(-100vw)
+  top: 0
+  z-index: 0
+
+nav
+  margin-left: 1em
+
+#menu_button 
+  display: none
+  width: 39px
+  overflow: hidden
+  margin-top: 1em
+
+#menu_checkbox:checked ~ aside.mobile-menu
+  transform: translateX(0rem)
+
+#menu_checkbox 
+	display: none
+	&:checked + #menu_label:before 
+		left: -39px
+	&:checked + #menu_label:after 
+		left: 39px
+	&:checked + #menu_label #menu_text_bar:before 
+    animation: moveUpThenDown 0.8s ease 0.2s forwards, shakeWhileMovingUp 0.8s ease 0.2s forwards, shakeWhileMovingDown 0.2s ease 0.8s forwards
+	
+#menu_label 
+  z-index: 20
+  position: relative
+  display: block
+  height: 29px
+  cursor: pointer
+  &:before, &:after
+    content: ''
+    transition: 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55) left
+  &:before
+    top: 0
+  &:after
+    top: 12px
+
+#menu_label:before, #menu_label:after, #menu_text_bar 
+	position: absolute
+	left: 0
+	width: 100%
+	height: 5px
+	background-color: $color2
+
+#menu_text_bar 
+	top: 24px
+	&:before 
+		content: 'NAV'
+		position: absolute
+		right: 0
+		left: 0
+		color: $color2
+		font-size: 12px
+		font-weight: bold
+		text-align: center
+	
+@keyframes moveUpThenDown
+  0%
+    top: 0
+  50%
+    top: -27px
+  100%
+    top: -14px
+
+@keyframes shakeWhileMovingUp
+  0%
+    transform: rotateZ(0)
+  25%
+    transform: rotateZ(-10deg)
+  50%
+    transform: rotateZ(0deg)
+  75%
+    transform: rotateZ(10deg)
+  100%
+    transform: rotateZ(0)
+
+@keyframes shakeWhileMovingDown
+  0%
+    transform: rotateZ(0)
+  80%
+    transform: rotateZ(3deg)
+  90%
+    transform: rotateZ(-3deg)
+  100%
+    transform: rotateZ(0)

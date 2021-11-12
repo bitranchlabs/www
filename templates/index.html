@@ -1,12 +1,15 @@
 {% extends "base.html" %}
 {% import "aside.html" as aside %}
 {% import "svgs.html" as svgs %}
+
 {% block headerMid %}
 {{ svgs::squareLogoWithText() }}
 {% endblock headerMid %}
+
 {% block content %}
   {{ aside::nav(class="main-nav", show_home=false) }}
 {% endblock content %}
+
 {% block footerMid %}
           &copy; Copyright 2021 - Ian S. Pringle.
 {% endblock footerMid %}

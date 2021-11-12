@@ -1,0 +1,25 @@
+$headerSVGHeight: 8em
+
+header
+  grid-area: header
+  display: flex
+  flex-flow: row nowrap
+  justify-content: space-between
+  align-items: center
+  width: 100%
+  #headerLeft
+    flex: 1
+    text-align: left
+  #headerMid
+    flex: 1
+    text-align: center
+    svg
+      margin-top: 9em
+      height: $headerSVGHeight
+      path
+        fill: rgb(185, 180, 169)
+  #headerRight
+    align-self: center
+    flex: 1
+    text-align: right
+    margin-right: 1em

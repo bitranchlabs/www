@@ -13,14 +13,11 @@
 {% endblock aside %}
 
 {% block content %}
-<h3 class="title">{{ page.title }}</h3>
-<p class="subtitle"><strong>{{ page.date }}</strong></p>
-{{ page.content | safe }}
+  <h3 class="title">{{ page.title }}</h3>
+  <p class="subtitle"><strong>{{ page.date }}</strong></p>
+  {{ page.content | safe }}
 {% endblock content %}
 
 {% block footerMid %}
   {{ svgs::logoWithText() }}
 {% endblock footerMid %}
-{% block footerRight %}
-  &copy; Copyright 2021 - Ian S. Pringle.
-{% endblock footerRight %}

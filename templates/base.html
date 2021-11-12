@@ -32,14 +32,25 @@
   </head>
   {% endblock head %}
   <canvas id="bg"></canvas>
-  <body>
+  <body class="no-overflow">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
     <header>
-      <nav>
-        <a class="underline" type="application/rss+xml" href="{{ get_url(path="rss.xml") }}">rss</a>
-      </nav>
+      {% block header %}
+      <div id="headerLeft">
+        {% block headerLeft %}
+        {% endblock headerLeft %}
+      </div>
+      <div id="headerMid">
+        {% block headerMid %}
+        {% endblock headerMid %}
+      </div>
+      <div id="headerRight">
+        {% block headerRight %}
+        {% endblock headerRight %}
+      </div>
+      {% endblock header %}
     </header>
     {% block aside %}{% endblock aside %}
     <main>
@@ -47,8 +58,19 @@
     </main>
     <footer>
       {% block footer %}
-      {{ macros::hcard(hidden=true) }}
-      &copy; Copyright 2021 - Ian S. Pringle.
+      <div id="footerLeft">
+        {% block footerLeft %}
+          {{ macros::hcard(hidden=true) }}
+        {% endblock footerLeft %}
+      </div>
+      <div id="footerMid">
+        {% block footerMid %}
+        {% endblock footerMid %}
+      </div>
+      <div id="footerRight">
+        {% block footerRight %}
+        {% endblock footerRight %}
+      </div>
       {% endblock footer %}
     </footer>
   </body>

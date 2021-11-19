@@ -1,75 +1,22 @@
-@import _fonts
-@import _base
+@import variables/_colors
 
-html
-  background: rgb(57, 66, 78)
-  font-family: $font
+@import _root
+@import _font
+@import _header
+@import _nav
+@import _theme-switch
+@import _body
+@import _main
+@import _links
+@import _footer
+@import _menu
+
+html, body
   font-size: 10px
-
-a
-  text-decoration: none
-  color: rgb(185, 180, 169)
-
-#bg
-  position: fixed
-  top: 0
-  left: 0
-  z-index: -1
-
-article
-  grid-area: article
-
-.underline:hover
-  color: rgb(185, 180, 169)
-
-.underline
-  color: rgb(185, 180, 169)
-  position: relative
-
-.underline::before
-  content: ''
-  position: absolute
-  bottom: 0
-  left: 0
-  right: 0
-  height: 2px
-  background-color: rgb(185, 180, 169)
-  transform-origin: bottom right
-  transform: scaleX(0)
-  transition: transform 0.5s ease
-
-.underline:hover::before
-  transform-origin: bottom left
-  transform: scaleX(1)
-
-.highlight
-  color: rgb(185, 180, 169)
-  position: relative
-  z-index: 1
-
-.highlight::before
-  content: ''
-  position: absolute
-  z-index: -1
-  top: 0
-  bottom: 0
-  left: -0.5em
-  right: -0.5em
-  background-color: rgb(185, 180, 169)
-  transform-origin: bottom center
-  transform: scaleY(0.1)
-  transition: all 0.1s ease-in-out
-
-.highlight:hover::before
-  transform: scaleY(1)
-  background-color: rgb(185, 180, 169)
-
-.highlight:hover
-  color: rgb(57, 66, 78)
-
-p
-  background: rgb(57, 66, 78)
-  background: rgba(57, 66, 78, 0.5)
-
-.no-overflow
-  overflow: hidden
+  font-family: $font
+  margin: 0
+  padding: 0
+  height: 100%
+  text-rendering: geometricPrecision
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale

@@ -1,33 +1,10 @@
 {% extends "base.html" %}
-{% import "aside.html" as aside %}
-{% import "svgs.html" as svgs %}
-
-{% block headerLeft %}
-<div id="menu_button">
-  <input type="checkbox" id="menu_checkbox">
-  <label for="menu_checkbox" id="menu_label">
-    <div id="menu_text_bar"></div>
-  </label>
-{{ aside::nav(class="mobile-menu", show_home=false) }}
-</div>
-{% endblock headerLeft %}
-
-{% block headerRight %}
-  <nav>
-    <a class="underline" type="application/rss+xml" href="{{ get_url(path="rss.xml") }}">rss</a>
-  </nav>
-{% endblock headerRight %}
-
-{% block aside %}
-  {{ aside::nav(class="sidebar") }}
-{% endblock aside %}
 
 {% block content %}
-  <h3 class="title">{{ page.title }}</h3>
-  <p class="subtitle"><strong>{{ page.date }}</strong></p>
-  {{ page.content | safe }}
+  <h3 class="title">{{ section.title }}</h3>
+  <ul>
+    {% for page in section.pages %}
+    <li><a class="highlight" href="{{ page.permalink | safe }}">{{ page.title }}</a></li>
+    {% endfor %}
+  </ul>
 {% endblock content %}
-
-{% block footerMid %}
-  {{ svgs::logoWithText() }}
-{% endblock footerMid %}

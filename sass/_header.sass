@@ -1,26 +1,28 @@
-$headerSVGHeight: 10em
+$threshhold: 40em
+$gap: 1rem
+$svgWidth: 5em
 
 header
-  grid-area: header
+  --mul: calc(#{$threshhold} - 100%)
   display: flex
-  flex-flow: row nowrap
-  justify-content: space-between
+  flex-wrap: wrap
   align-items: center
-  width: 100%
-  #headerLeft
-    flex: 1
-    text-align: left
-    align-self: center
-  #headerMid
-    flex: 1
-    text-align: center
+  margin: calc(#{$gap} / 2 * -1) 0
+  &:before
+    content: ""
+    flex-grow: 777
+    margin: 0
+    flex-basis: Max(0px, --mul)
+  > *
+    margin: calc(#{$gap} / 2) auto
+    &:first-child
+      order: -1
+  .branding
+    .title
+      font-family: 'Amatic Regular'
+      font-size: 5em
+      color: var(--default-accent-1)
     svg
-      margin-top: 9em
-      height: $headerSVGHeight
+      width: $svgWidth
       path
-        fill: rgb(185, 180, 169)
-  #headerRight
-    align-self: center
-    flex: 1
-    text-align: right
-    margin-right: 1em
+        fill: var(--default-accent-2)

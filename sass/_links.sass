@@ -1,0 +1,54 @@
+$color: var(--default-link-hl)
+
+a
+  text-decoration: none
+  color: $color
+
+.underline:hover
+  color: $color
+
+.underline
+  color: $color
+  position: relative
+
+.underline::before
+  content: ''
+  position: absolute
+  bottom: 0
+  left: 0
+  right: 0
+  height: 2px
+  background-color: $color
+  transform-origin: bottom right
+  transform: scaleX(0)
+  transition: transform 0.5s ease
+
+.underline:hover::before
+  transform-origin: bottom left
+  transform: scaleX(1)
+
+.highlight
+  color: $color
+  position: relative
+  z-index: 1
+
+.highlight::before
+  content: ''
+  position: absolute
+  z-index: -1
+  top: 0
+  bottom: 0
+  left: -0.5em
+  right: -0.5em
+  background-color: $color
+  transform-origin: bottom center
+  transform: scaleY(0.1)
+  transition: all 0.1s ease-in-out
+
+.highlight:hover::before
+  transform: scaleY(1)
+  background-color: $color
+
+.highlight:hover
+  color: rgb(57, 66, 78)
+

@@ -1,0 +1,36 @@
+.theme-switch
+  position: absolute !important
+  height: 1px
+  width: 1px
+  overflow: hidden
+  clip: rect(1px, 1px, 1px, 1px)
+  &:checked ~ #body
+    --default-icon: var(--dark-icon)
+    --default-text: var(--dark-text)
+    --default-background: var(--dark-background)
+    --default-foreground: var(--dark-foreground)
+    --default-accent-1: var(--dark-accent-1)
+    --default-accent-2: var(--dark-accent-2)
+    --default-icon-glow: var(--dark-icon-glow)
+    --default-link-hl: var(--dark-link-hl)
+
+.theme-switch-label
+  cursor: pointer
+  display: flex
+  &::before
+    content: var(--default-icon)
+    font-size: 1em
+    transition: text-shadow 0.2s
+  &::after
+    align-self: center
+    color: var(--default-icon-glow)
+    opacity: 0
+    transition: opacity 0.2s
+
+.theme-switch:focus ~ #body .switch-label::before,
+.theme-switch-label:hover::before
+  text-shadow: 0 0 1.5em var(--default-accent-2)
+
+.theme-switch:focus ~ #body .switch-label::after,
+.theme-switch-label:hover::after
+  opacity: 1

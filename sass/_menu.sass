@@ -6,7 +6,7 @@ $color2: rgb(185, 180, 169)
 	&:focus 
 		outline: none
 
-.mobile-menu
+.menu
   background: #333
   width: 100vw
   height: 100vh
@@ -18,28 +18,24 @@ $color2: rgb(185, 180, 169)
   top: 0
   z-index: 0
 
-nav
-  margin-left: 1em
-
-#menu_button 
-  display: none
+#menu-button 
   width: 39px
   overflow: hidden
   margin-top: 1em
 
-#menu_checkbox:checked ~ aside.mobile-menu
+#menu-checkbox:checked ~ aside.menu
   transform: translateX(0rem)
 
-#menu_checkbox 
+#menu-checkbox 
 	display: none
-	&:checked + #menu_label:before 
+	&:checked + #menu-label:before 
 		left: -39px
-	&:checked + #menu_label:after 
+	&:checked + #menu-label:after 
 		left: 39px
-	&:checked + #menu_label #menu_text_bar:before 
+	&:checked + #menu-label #menu-text-bar:before 
     animation: moveUpThenDown 0.8s ease 0.2s forwards, shakeWhileMovingUp 0.8s ease 0.2s forwards, shakeWhileMovingDown 0.2s ease 0.8s forwards
 	
-#menu_label 
+#menu-label 
   z-index: 20
   position: relative
   display: block
@@ -53,14 +49,14 @@ nav
   &:after
     top: 12px
 
-#menu_label:before, #menu_label:after, #menu_text_bar 
+#menu-label:before, #menu-label:after, #menu-text-bar 
 	position: absolute
 	left: 0
 	width: 100%
 	height: 5px
 	background-color: $color2
 
-#menu_text_bar 
+#menu-text-bar 
 	top: 24px
 	&:before 
 		content: 'NAV'

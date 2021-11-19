@@ -1,0 +1,16 @@
+{% import "macros.html" as macros %}
+
+<div id="footerLeft">
+  {% block footerLeft %}
+    {{ macros::hcard(hidden=true) }}
+  {% endblock footerLeft %}
+</div>
+<div id="footerMid">
+  {% block footerMid %}
+  {% endblock footerMid %}
+</div>
+<div id="footerRight">
+  {% block footerRight %}
+    &copy; Copyright 2021 - Ian S. Pringle.
+  {% endblock footerRight %}
+</div>

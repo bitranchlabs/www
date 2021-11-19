@@ -1,0 +1,10 @@
+{% import "logos.html" as logos %}
+
+<a href="{{ get_url(path='/') }}" class="branding">
+  {{ logos::logo() }}
+  <span class="title">Bit Ranch Labs</span>
+</a>
+<div class="nav">
+  {% include "atoms/nav.html" %}
+</div>
+{% include "atoms/theme-switch.html" %}

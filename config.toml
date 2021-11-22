@@ -1,5 +1,5 @@
 # The URL the site will be built for
-base_url = "https://bitranchlabs.com/"
+base_url = "https://www.bitranchlabs.com/"
 compile_sass = true
 build_search_index = true
 generate_feed = true

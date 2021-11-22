@@ -7,4 +7,6 @@ const setTheme = themeName => {
 
 }
 
-setTheme(localStorage.getItem('theme'));
+setTheme(localStorage.getItem('theme')
+          ? localStorage.getItem('theme')
+          : 'light');
